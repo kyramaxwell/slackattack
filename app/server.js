@@ -147,7 +147,7 @@ controller.hears(['help'], ['direct_message', 'direct_mention', 'mention'], (bot
 });
 
 // outgoing_webhook
-controller.on(['kyra_bot'], ['outgoing_webhook'], (bot, message) => {
+controller.on('kyra_bot', 'outgoing_webhook', (bot, message) => {
   bot.replyPublic(message, 'yeah yeah I\'m up');
 });
 
