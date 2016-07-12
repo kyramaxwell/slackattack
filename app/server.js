@@ -108,6 +108,7 @@ function askLocation(response, convo) {
     })
     .catch((err) => {
       console.error(err);
+      convo.say('Sorry I couldn\'t find any restaurants');
     });
     convo.next();
   });
@@ -143,6 +144,10 @@ function askSpiritAnimal(response, convo) {
 // "help" response
 controller.hears(['help'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, 'Hi! I\'m kyra_bot\nTo have a conversation say "talk to me"\nTo get restaurant reccomendations say "I\'m hungry"\nOr just say hello!');
+});
+
+controller.on(['wake up'], ['outgoing_webhook'], (bot, message) => {
+  bot.replyPublic(message, 'yeah yeah I\'m up');
 });
 
 // response to unknown messages
