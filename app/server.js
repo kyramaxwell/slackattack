@@ -148,7 +148,14 @@ controller.hears(['help'], ['direct_message', 'direct_mention', 'mention'], (bot
 
 // outgoing_webhook
 controller.on('outgoing_webhook', (bot, message) => {
-  bot.replyPublic(message, 'yeah yeah I\'m up');
+  bot.replyPublic(message, {
+    attachments: [
+      {
+        pretext: 'yeah yeah I\'m up',
+        image_url: 'http://i.giphy.com/R9z50rPINd5ew.gif',
+      },
+    ],
+  });
 });
 
 // response to unknown messages
